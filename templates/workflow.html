@@ -1,45 +1,45 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base1.html" %} {% block content %}
 
-<h2>
-    Work Flow
+
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <!-- Adding Flash message here for users trying to register twice -->
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!--Rendering login form here-->
+        
+<h2 class="text-center text-white bg-primary py-2 px-4 rounded shadow-sm">
+  Work Flow
 </h2>
-<ol>
- <li>
-    <a href="{{url_for('add_data' , num=1)}}">Visual Inspection</a>
- </li>
- <li>
-   <a href="{{url_for('add_data' , num=2)}}">Kapton Gluing</a>
- </li>
- <li>
-    <a href="{{url_for('add_data' , num=3)}}">HV & IV Test</a>
- </li>
- <li>
-   <a href="{{url_for('add_data' , num=4)}}">Sensor Gluing</a>
- </li>
- <li>
-    <a href="{{url_for('add_data' , num=5)}}">Needle Metrology</a>
- </li>
- <li>
-   <a href="{{url_for('add_data' , num=6)}}">Skeleton Test</a>
- </li>
- <li>
-    <a href="{{url_for('add_data' , num=7)}}">Hybrid Gluing</a>
- </li>
- <li>
-    <a href="{{url_for('add_data' , num=8)}}">Wire Bonding</a>
- </li>
- <li>
-    <a href="{{url_for('add_data' , num=9)}}">Noise Test</a>
- </li>
- <li>
-    <a href="{{url_for('add_data' , num=10)}}">Burnim Test</a>
- </li>
+<div class="container text-center my-5">
+    <div class ="long-box">
+      <!-- 10 Links in the long rectangular box -->
+      <a href="{{url_for('add_data', num=1)}}" class="link-box">Visual Inspection</a>
+      <a href="{{url_for('add_data', num=2)}}" class="link-box">Kapton Gluing</a>
+      <a href="{{url_for('add_data', num=3)}}" class="link-box">Hv & Iv Form</a>
+      <a href="{{url_for('add_data', num=4)}}" class="link-box">Sensor Gluing</a>
+      <a href="{{url_for('add_data', num=5)}}" class="link-box">Needle Metrology</a>
+      <a href="{{url_for('add_data', num=6)}}" class="link-box">Skeleton Test</a>
+      <a href="{{url_for('add_data', num=7)}}" class="link-box">Hybrid Gluing</a>
+      <a href="{{url_for('add_data', num=8)}}" class="link-box">Wire Bonding</a>
+      <a href="{{url_for('add_data', num=9)}}" class="link-box">Noise Test</a>
+      <a href="{{url_for('add_data', num=10)}}" class="link-box">Burnin Test</a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (Optional, for interactive features like dropdowns) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
-</ol>
 
 
+      </div>
+    </div>
+  </div>
+</main>
 
 
 

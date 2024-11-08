@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}
+
+{% extends "base1.html" %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,13 +101,14 @@
         {% endif %}
 
         <!-- Add and Update Buttons -->
-        <div class="button-container">
-            <a href="{{ url_for('show_form') }}">
-    <button class="btn btn-add">Add Station</button>
-</a>
-
-            <button class="btn btn-update">Update Stations</button>
-        </div>
+<div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-secondary text-uppercase" href="#!">Update Station →</a>
+        <a
+          class="btn btn-primary text-uppercase  float-right"
+          href="{{url_for('show_form')}}"
+          >Add station →</a
+        >
+    </div>
     </div>
 
 </body>

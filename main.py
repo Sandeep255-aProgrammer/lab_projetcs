@@ -3,10 +3,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String
+from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
 import os
+from werkzeug.utils import secure_filename
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from forms import (
+    AddStationForm , 
     VisualInspection, 
     KaptonGluing, 
     HvIvForm, 
@@ -114,10 +117,19 @@ def stations():
         all_stations = result.scalars().all()
         return render_template("all_stations.html",all_stations = all_stations)
     #return render_template("stations1.html")
-@app.route("/station_form")
+@app.route("/station_form" ,methods=["GET","POST"])
 @login_required
 def show_form():
-    return render_template("station_form.html")
+    form = AddStationForm()
+    if form.validate_on_submit():
+        f = form.station_img.data
+        filename = secure_filename(f.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'],filename)
+        f.save(os.path.join(file_path))
+        new_station = Station( station_name = form.station_name.data ,year = date.year , day = date.day , month = date.month ,img_url = file_path,description =form.station_comment.data
+            )
+        return redirect(url_for('stations'))
+    return render_template("add_station_form.html",form = form)
 @app.route("/add_station",methods=["POST"])
 @login_required
 def add_station():
