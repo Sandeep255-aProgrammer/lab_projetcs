@@ -75,7 +75,12 @@ with app.app_context():
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    if not current_user.is_authenticated:
+        return render_template("index.html")
+    else:
+        return redirect(url_for('secrets'))
+        
+  
 
 
 @app.route('/register',methods =['GET','POST'])
@@ -86,7 +91,7 @@ def register():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user)
-            return render_template("secrets.html",name = request.form.get("name"))
+            return redirect(url_for('secrets'))
     return render_template("register.html")
 
 
