@@ -113,7 +113,21 @@ def login():
 @app.route('/secrets')
 @login_required
 def secrets():
+    return render_template("home.html")
+@app.route('/workflow')
+@login_required
+def work_flow():
     return render_template("workflow.html")
+
+@app.route('/modules')
+@login_required
+def show_module():
+    return render_template("modules.html")
+@app.route('/module_report')
+@login_required
+def module_report():
+    return render_template("module_report.html")
+
 
 
 @app.route('/stations')
@@ -159,6 +173,7 @@ def logout():
 
 
 @app.route('/download')
+@login_required
 def download():
     return send_from_directory("static", path="files/cheat_sheet.pdf")
 
