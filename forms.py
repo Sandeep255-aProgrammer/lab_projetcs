@@ -47,6 +47,15 @@ class AddStationForm(FlaskForm):
     station_comment = CKEditorField("Comment", validators=[DataRequired()])
     submit= SubmitField("Save Station")
 
+
+#Material reception 
+class MaterialReceiver():
+    material_name = StringField("Material_Name", validators=[DataRequired()])
+    receiver_name = StringField("Receiver_Name", validators=[DataRequired()])
+    date = DateField("Expary Date", format='%Y-%m-%d')
+    image = FileField("Upload Image" ,validators=[DataRequired()])
+    comment= CKEditorField("Comment", validators=[DataRequired()])
+    submit = SubmitField("Save")
 # VisualInspectionForm done
 
 class VisualInspection(FlaskForm):
@@ -129,6 +138,19 @@ class HybridGluingForm(FlaskForm):
     comment = CKEditorField("Comment", validators=[DataRequired()])
     submit = SubmitField("Save")
 
+
+# Module inforamtion 
+
+class ModuleData(FlaskForm):
+    module_id = StringField("Module_ID", validators=[DataRequired()])
+    FEH_L =  StringField("FEH_LID", validators=[DataRequired()])
+    FEH_R = StringField("FEH_RID", validators=[DataRequired()])
+    bottom_sensor = StringField("buttom_sensor_ID", validators=[DataRequired()])
+    top_sensor = StringField("top_sensor_ID", validators=[DataRequired()])
+    VTRx = StringField("VTRx+_ID", validators=[DataRequired()])
+    image = FileField("Upload Image")
+    comment = CKEditorField("Comment", validators=[DataRequired()])
+    submit = SubmitField("Save")
 #Wire Bonding
 
 class WireBondingForm(FlaskForm):

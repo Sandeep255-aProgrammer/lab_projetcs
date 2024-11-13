@@ -9,14 +9,16 @@ from werkzeug.utils import secure_filename
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from forms import (
-    AddStationForm , 
+    AddStationForm ,
+    MaterialReceiver, 
     VisualInspection, 
     KaptonGluing, 
     HvIvForm, 
     SensorGluing, 
     NeedleMetrologyForm, 
     SkeletonTestForm, 
-    HybridGluingForm, 
+    HybridGluingForm,
+    ModuleData, 
     WireBondingForm, 
     NoiseTestForm, 
     BufNimForm
@@ -164,7 +166,9 @@ def download():
 def add_data():
     num = request.args.get('num')    
     step_no = int(num)
-    if step_no == 1:
+    if step_no == 0:
+        form = MaterialReceiver()
+    elif step_no == 1:
         form = VisualInspection()
     elif step_no == 2:
         form = KaptonGluing()
@@ -178,6 +182,8 @@ def add_data():
         form = SkeletonTestForm()
     elif step_no == 7:
         form = HybridGluingForm()
+    elif step_no == 11:
+        form = ModuleData()
     elif step_no == 8:
         form = WireBondingForm()
     elif step_no == 9:
